@@ -1,0 +1,84 @@
+<html>
+
+<header>
+ <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <script>
+  $(document).ready(function(){
+    //alert('here i am');
+
+    //$('.update-email).on('click',)
+    $('body').on('click','.update-emaiil', function(){
+     
+     var id_val=$(this).attr('data-id');
+     var emaail_val=$('#emaail-id-' + id_val).val();
+     alert('kinda working' + id_val + ' here you:' + emaail_val);
+
+
+     $.ajax({
+      url: '/users/' + id_val,
+      type: 'PUT',
+      data: {user:{email: emaail_val}}
+    }).done(function(r){
+
+    });
+
+  });
+
+    $('body').on('click','.hello', function(){
+     var id_val=$(this).attr('data-id');
+     //alert('id_val ' + id_val); 
+     $.ajax({
+      url: '/users',
+      type: 'GET'
+    }).done(function(r){
+      //alert('came back' + r.name); 
+      console.log(r);
+      var str="";
+      $.each(r, function(key, user){
+        console.log(user.name);
+        str+="<div class='user' data-id='" + user.id +"'>" + user.name + "</div>";
+      });
+      $('.result').html(str);
+    });
+  
+
+    });
+  
+   $('body').on('click','.user', function(){
+     var id_val=$(this).attr('data-id');
+     //alert('id_val ' + id_val);
+     $.ajax({
+      url: '/users/' + id_val,
+      type: 'GET'
+    }).done(function(r){
+     
+      //alert('came back' + r.name);
+      /*
+      console.log(r);
+      var str="";
+      $.each(r, function(key, user){
+        console.log(user.name);
+        str+="<div class='user' data-id='" + user.id +"'>" + user.name + "</div>";
+      });
+      */
+      $('.result-detail').html(r.name + " emaail: " + r.emaail + "<input size='60' id='emaail-id-" + r.id + "' data-id='" + r.id + "' value='" + r.emaail + "' /><div class='update-emaiil' data-id='" + r.id + "'>upate email</div>");
+      
+    });
+
+
+    });
+
+  });
+ </script>
+
+</header>
+<body>
+
+<div class='hello' data-id='1'>click me</div>
+<div class='hello' data-id='2'>another</div>
+<div class='result'></div>
+<br /><br />
+<div class='result-detail'></div>
+
+
+</body>

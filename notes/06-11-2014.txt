@@ -1,0 +1,53 @@
+
+
+unix commands:
+ls -a 
+
+cd - change directory
+cd ~  # takes you to home directory
+cd ..
+cd -
+cd DirectoryName
+pwd # where am I?
+sudo  # do this as root user, usually for installing softword
+which APP # which one do we care about
+env
+TAB -> autocompletion
+touch 
+echo "[]" > FILENAME
+
+
+basic git commands
+git add  # add files / directories
+git status # see the status of different files
+git commit # commit changes
+git push  # pushes changes
+
+
+tree  # will need to brew install this
+
+rails new APPNAME
+rails server -p PORT_NUMBER
+rails g model user name:string emaail:string
+
+jQuery - javascript library, all about selectors, events, and ajax
+JSON 
+html classes - can have multiple; id usually just one (multiple id's on a web page will cause it to blow up)
+$('.selector').on('click', ...) vs $('body').on('.selector', click', ...)
+
+
+
+vim - a great commonly found text editor
+
+
+Rails - MVC pattern see it everywhere, used mostly for where you put your code. Will hear thin-controller / fat-model
+
+Model
+In general, your business log
+ActiveRecord, User.all, User.find
+
+to_json
+controller - will have access to params object
+
+
+http: - GET (index, show), POST (create), PUT (update) 
