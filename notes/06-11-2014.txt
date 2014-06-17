@@ -1,5 +1,10 @@
 
 
+Most Important:
+1. path - can see via `env` 
+2. file persmissions
+
+
 unix commands:
 ls -a 
 
